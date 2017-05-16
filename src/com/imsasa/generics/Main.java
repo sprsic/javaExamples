@@ -1,5 +1,6 @@
 package com.imsasa.generics;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -19,8 +20,17 @@ public class Main {
         UnaryFunction<Number> identityNumber = identityFunction();
         for (Number n : numbers)
             System.out.println(identityNumber.applyFunction(n));
-    }
 
+        List<Integer> listOfIntegers = new ArrayList<Integer>() {{
+            add(1);
+            add(2);
+            add(7);
+            add(9);
+            add(3);
+        }};
+
+        System.out.println(max(listOfIntegers));
+    }
 
     public static <T extends Comparable<T>> T max(List<T> list) {
 
@@ -38,5 +48,4 @@ public class Main {
     public static <T> UnaryFunction<T> identityFunction() {
         return (UnaryFunction<T>) IDENTITY_FUNCTION;
     }
-
 }
